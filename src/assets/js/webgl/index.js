@@ -15,13 +15,14 @@ import {
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import vertexShader from "./shader/vertex.glsl";
 import fragmentShader from "./shader/fragment.glsl";
-import image from "../../img/wave.jpg";
 
 export default class webGL {
   // コンストラクタ
   constructor(containerSelector) {
     // canvasタグが配置されるコンテナを取得
     this.container = document.querySelector(containerSelector);
+    
+    this.image = "assets/img/wave.jpg";
 
     this.renderParam = {
       clearColor: 0xcccccc,
@@ -91,7 +92,7 @@ export default class webGL {
   }
 
   _setTexture() {
-    this.texture = new TextureLoader().load(image);
+    this.texture = new TextureLoader().load(this.image);
   }
 
   _createMesh() {
